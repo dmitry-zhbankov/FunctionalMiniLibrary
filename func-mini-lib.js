@@ -1,4 +1,4 @@
-var arrLib = {};
+let arrLib = {};
 
 arrLib = (function (context) {
 
@@ -38,22 +38,22 @@ arrLib = (function (context) {
 
     context.value=function(){
         return value;
-    }
+    };
     
     context.asChain = function (arr) {
 
         value = Array.from(arr);
         return context;
-    }
+    };
 
     context.first = function (arr) {
         return arr[0];
-    }
+    };
 
     context.last = function (arr) {
         let n = Array.from(arr).length;
         return arr[n - 1];
-    }
+    };
 
     context.skip = function (arr, number) {
         if (context.isUndefined(number)) {
@@ -64,7 +64,7 @@ arrLib = (function (context) {
             }
         }
         return Array.from(arr).slice(number);
-    }
+    };
 
     context.take = function (arr, number) {
         if (context.isUndefined(number)) {
@@ -75,7 +75,7 @@ arrLib = (function (context) {
             }
         }
         return Array.from(arr).slice(0, number);
-    }
+    };
 
     context.result = arrLib;
 
