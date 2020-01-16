@@ -33,13 +33,13 @@ arrLib = (function (context) {
     context.isNull = function (obj) {
         return obj === null;
     };
-    
+
     let value;
 
-    context.value=function(){
+    context.value = function () {
         return value;
     };
-    
+
     context.asChain = function (arr) {
 
         value = Array.from(arr);
@@ -59,7 +59,7 @@ arrLib = (function (context) {
         if (context.isUndefined(number)) {
             if (context.isNumber(arr)) {
                 number = arr;
-                value = value.slice(number);                
+                value = value.slice(number);
                 return context;
             }
         }
@@ -70,17 +70,15 @@ arrLib = (function (context) {
         if (context.isUndefined(number)) {
             if (context.isNumber(arr)) {
                 number = arr;
-                value = value.slice(0, number);                
+                value = value.slice(0, number);
                 return context;
             }
         }
         return Array.from(arr).slice(0, number);
     };
 
-    context.result = arrLib;
-
     return context;
 
 })(arrLib);
 
-module.exports =arrLib;
+module.exports = arrLib;
