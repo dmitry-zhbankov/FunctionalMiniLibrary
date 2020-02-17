@@ -7,7 +7,8 @@ arrLib = (function (context) {
     };
 
     context.isBoolean = function (obj) {
-        return typeof obj === "boolean";
+        return typeof obj === 'boolean' ||
+            obj instanceof Boolean;
     };
 
     context.isDate = function (obj) {
@@ -15,11 +16,12 @@ arrLib = (function (context) {
     };
 
     context.isNumber = function (obj) {
-        return typeof obj === "number";
+        return !isNaN(parseFloat(obj)) && isFinite(obj);
     };
 
     context.isString = function (obj) {
-        return typeof obj === "string";
+        return typeof obj === "string" ||
+            obj instanceof String;
     };
 
     context.isFunction = function (obj) {
@@ -47,12 +49,16 @@ arrLib = (function (context) {
     };
 
     context.first = function (arr) {
-        return arr[0];
+        if (arr.length > 0)
+            return arr[0];
+        return null;
     };
 
     context.last = function (arr) {
         let n = Array.from(arr).length;
-        return arr[n - 1];
+        if (n > 0)
+            return arr[n - 1];
+        return null;
     };
 
     context.skip = function (arr, number) {
