@@ -1,41 +1,42 @@
 let assert = require("assert");
-let arrLib = require("../func-mini-lib");
+let arrLib = require("../arr-lib");
+let checkTypeLib = require("../check-type-lib");
 
 describe("func-mini-lib", function () {
     describe("function isArray()", function () {
         describe("should return true when value is", function () {
             it("[1, 3, 2, 1, 5, 3]", function () {
-                assert.strictEqual(arrLib.isArray([1, 3, 2, 1, 5, 3]), true);
+                assert.strictEqual(checkTypeLib.isArray([1, 3, 2, 1, 5, 3]), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isArray(true), false);
+                assert.strictEqual(checkTypeLib.isArray(true), false);
             });
 
             it("'str'", function () {
-                assert.strictEqual(arrLib.isArray("str"), false);
+                assert.strictEqual(checkTypeLib.isArray("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isArray(1), false);
+                assert.strictEqual(checkTypeLib.isArray(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isArray(null), false);
+                assert.strictEqual(checkTypeLib.isArray(null), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isArray(undefined), false);
+                assert.strictEqual(checkTypeLib.isArray(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isArray(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isArray(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isArray({}), false);
+                assert.strictEqual(checkTypeLib.isArray({}), false);
             });
         });
     });
@@ -43,45 +44,45 @@ describe("func-mini-lib", function () {
     describe("function isBoolean()", function () {
         describe("should return true when value is", function () {
             it("should return true when the value is true", function () {
-                assert.strictEqual(arrLib.isBoolean(true), true);
+                assert.strictEqual(checkTypeLib.isBoolean(true), true);
             });
 
             it("should return true when the value is false", function () {
-                assert.strictEqual(arrLib.isBoolean(false), true);
+                assert.strictEqual(checkTypeLib.isBoolean(false), true);
             });
 
             it("should return false when the value is Boolean(true)", function () {
-                assert.strictEqual(arrLib.isBoolean(new Boolean(true)), true);
+                assert.strictEqual(checkTypeLib.isBoolean(Boolean(true)), true);
             });
 
             it("should return false when the value is Boolean()", function () {
-                assert.strictEqual(arrLib.isBoolean(new Boolean()), true);
+                assert.strictEqual(checkTypeLib.isBoolean(Boolean()), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("'str'", function () {
-                assert.strictEqual(arrLib.isBoolean("str"), false);
+                assert.strictEqual(checkTypeLib.isBoolean("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isBoolean(1), false);
+                assert.strictEqual(checkTypeLib.isBoolean(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isBoolean(null), false);
+                assert.strictEqual(checkTypeLib.isBoolean(null), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isBoolean(undefined), false);
+                assert.strictEqual(checkTypeLib.isBoolean(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isBoolean(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isBoolean(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isBoolean({}), false);
+                assert.strictEqual(checkTypeLib.isBoolean({}), false);
             });
         });
     });
@@ -89,37 +90,37 @@ describe("func-mini-lib", function () {
     describe("function isDate()", function () {
         describe("should return true when value is", function () {
             it("should return true when the value is Date.now()", function () {
-                assert.strictEqual(arrLib.isDate(new Date()), true);
+                assert.strictEqual(checkTypeLib.isDate(new Date()), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isDate(true), false);
+                assert.strictEqual(checkTypeLib.isDate(true), false);
             });
 
             it("'str'", function () {
-                assert.strictEqual(arrLib.isDate("str"), false);
+                assert.strictEqual(checkTypeLib.isDate("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isDate(1), false);
+                assert.strictEqual(checkTypeLib.isDate(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isDate(null), false);
+                assert.strictEqual(checkTypeLib.isDate(null), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isDate(undefined), false);
+                assert.strictEqual(checkTypeLib.isDate(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isDate(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isDate(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isDate({}), false);
+                assert.strictEqual(checkTypeLib.isDate({}), false);
             });
         });
     });
@@ -127,53 +128,53 @@ describe("func-mini-lib", function () {
     describe("function isNumber()", function () {
         describe("should return true when value is", function () {
             it("1", function () {
-                assert.strictEqual(arrLib.isNumber(1), true);
+                assert.strictEqual(checkTypeLib.isNumber(1), true);
             });
 
             it("0xFF", function () {
-                assert.strictEqual(arrLib.isNumber(0xFF), true);
+                assert.strictEqual(checkTypeLib.isNumber(0xFF), true);
             });
 
             it("0o33", function () {
-                assert.strictEqual(arrLib.isNumber(0o33), true);
+                assert.strictEqual(checkTypeLib.isNumber(0o33), true);
             });
 
             it("0b1111", function () {
-                assert.strictEqual(arrLib.isNumber(0b1111), true);
+                assert.strictEqual(checkTypeLib.isNumber(0b1111), true);
             });
 
             it("new Number()", function () {
-                assert.strictEqual(arrLib.isNumber(new Number()), true);
+                assert.strictEqual(checkTypeLib.isNumber(Number()), true);
             });
 
             it("new Number(1)", function () {
-                assert.strictEqual(arrLib.isNumber(new Number(1)), true);
+                assert.strictEqual(checkTypeLib.isNumber(Number(1)), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("{}", function () {
-                assert.strictEqual(arrLib.isNumber({}), false);
+                assert.strictEqual(checkTypeLib.isNumber({}), false);
             });
 
             it("NaN", function () {
-                assert.strictEqual(arrLib.isNumber(NaN), false);
+                assert.strictEqual(checkTypeLib.isNumber(NaN), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isNumber(null), false);
+                assert.strictEqual(checkTypeLib.isNumber(null), false);
             });
 
             it("true", function () {
-                assert.strictEqual(arrLib.isNumber(true), false);
+                assert.strictEqual(checkTypeLib.isNumber(true), false);
             });
 
             it("Infinity", function () {
-                assert.strictEqual(arrLib.isNumber(Infinity), false);
+                assert.strictEqual(checkTypeLib.isNumber(Infinity), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isNumber(undefined), false);
+                assert.strictEqual(checkTypeLib.isNumber(undefined), false);
             });
         });
     });
@@ -181,37 +182,37 @@ describe("func-mini-lib", function () {
     describe("function isString()", function () {
         describe("should return true when value is", function () {
             it("'str'", function () {
-                assert.strictEqual(arrLib.isString("str"), true);
+                assert.strictEqual(checkTypeLib.isString("str"), true);
             });
 
             it("new String()", function () {
-                assert.strictEqual(arrLib.isString(new String()), true);
+                assert.strictEqual(checkTypeLib.isString(String()), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isString(true), false);
+                assert.strictEqual(checkTypeLib.isString(true), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isString(1), false);
+                assert.strictEqual(checkTypeLib.isString(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isString(null), false);
+                assert.strictEqual(checkTypeLib.isString(null), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isString(undefined), false);
+                assert.strictEqual(checkTypeLib.isString(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isString(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isString(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isString({}), false);
+                assert.strictEqual(checkTypeLib.isString({}), false);
             });
         });
     });
@@ -219,38 +220,38 @@ describe("func-mini-lib", function () {
     describe("function isFunction()", function () {
         describe("should return true when value is", function () {
             it("()=>{return 1+2}", function () {
-                assert.strictEqual(arrLib.isFunction(() => {
+                assert.strictEqual(checkTypeLib.isFunction(() => {
                     return 1 + 2
                 }), true);
             });
         });
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isFunction(true), false);
+                assert.strictEqual(checkTypeLib.isFunction(true), false);
             });
 
             it("'str'", function () {
-                assert.strictEqual(arrLib.isFunction("str"), false);
+                assert.strictEqual(checkTypeLib.isFunction("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isFunction(1), false);
+                assert.strictEqual(checkTypeLib.isFunction(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isFunction(null), false);
+                assert.strictEqual(checkTypeLib.isFunction(null), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isFunction(undefined), false);
+                assert.strictEqual(checkTypeLib.isFunction(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isFunction(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isFunction(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isFunction({}), false);
+                assert.strictEqual(checkTypeLib.isFunction({}), false);
             });
         });
     });
@@ -258,33 +259,33 @@ describe("func-mini-lib", function () {
     describe("function isUndefined()", function () {
         describe("should return true when value is", function () {
             it("undefined", function () {
-                assert.strictEqual(arrLib.isUndefined(undefined), true);
+                assert.strictEqual(checkTypeLib.isUndefined(undefined), true);
             });
         });
 
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isUndefined(true), false);
+                assert.strictEqual(checkTypeLib.isUndefined(true), false);
             });
 
             it("'str'", function () {
-                assert.strictEqual(arrLib.isUndefined("str"), false);
+                assert.strictEqual(checkTypeLib.isUndefined("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isUndefined(1), false);
+                assert.strictEqual(checkTypeLib.isUndefined(1), false);
             });
 
             it("null", function () {
-                assert.strictEqual(arrLib.isUndefined(null), false);
+                assert.strictEqual(checkTypeLib.isUndefined(null), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isUndefined(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isUndefined(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isUndefined({}), false);
+                assert.strictEqual(checkTypeLib.isUndefined({}), false);
             });
         });
     });
@@ -292,32 +293,32 @@ describe("func-mini-lib", function () {
     describe("function isNull()", function () {
         describe("should return true when value is", function () {
             it("null", function () {
-                assert.strictEqual(arrLib.isNull(null), true);
+                assert.strictEqual(checkTypeLib.isNull(null), true);
             });
         });
         describe("should return false when value is", function () {
             it("true", function () {
-                assert.strictEqual(arrLib.isNull(true), false);
+                assert.strictEqual(checkTypeLib.isNull(true), false);
             });
 
             it("'str'", function () {
-                assert.strictEqual(arrLib.isNull("str"), false);
+                assert.strictEqual(checkTypeLib.isNull("str"), false);
             });
 
             it("1", function () {
-                assert.strictEqual(arrLib.isNull(1), false);
+                assert.strictEqual(checkTypeLib.isNull(1), false);
             });
 
             it("undefined", function () {
-                assert.strictEqual(arrLib.isNull(undefined), false);
+                assert.strictEqual(checkTypeLib.isNull(undefined), false);
             });
 
             it("Symbol", function () {
-                assert.strictEqual(arrLib.isNull(Symbol()), false);
+                assert.strictEqual(checkTypeLib.isNull(Symbol()), false);
             });
 
             it("{}", function () {
-                assert.strictEqual(arrLib.isNull({}), false);
+                assert.strictEqual(checkTypeLib.isNull({}), false);
             });
         });
     });
@@ -366,10 +367,19 @@ describe("func-mini-lib", function () {
 
     describe("functions asChain() skip() take() value()", function () {
         it("should return [1,5] when the parameters are [1, 3, 2, 1, 5, 3], skip 3, take 2", function () {
-            assert.deepStrictEqual(arrLib.asChain([1, 3, 2, 1, 5, 3]).skip(3).take(2).value(), [1, 5]);
+            assert.deepStrictEqual(arrLib.asChain([1, 3, 2, 1, 5, 3]).skip(3).take(2).result, [1, 5]);
         });
         it("should return [2,1,5] when the parameters are [1, 3, 2, 1, 5, 3], skip 2, take 3", function () {
-            assert.deepStrictEqual(arrLib.asChain([1, 3, 2, 1, 5, 3]).skip(2).take(3).value(), [2, 1, 5]);
+            assert.deepStrictEqual(arrLib.asChain([1, 3, 2, 1, 5, 3]).skip(2).take(3).result, [2, 1, 5]);
+        });
+        it("should return [1] when the parameters are [1, 2], take 1", function () {
+            assert.deepStrictEqual(arrLib.asChain([1, 2]).take(1).result, [1]);
+        });
+        it("should return [2] when the parameters are [2, 3], take 1", function () {
+            assert.deepStrictEqual(arrLib.asChain([2, 3]).take(1).result, [2]);
+        });
+        it("should return [2,1,5] when the parameters are [1, 2], take 1", function () {
+            assert.deepStrictEqual(arrLib.asChain([3, 2]).take(1).result, [3]);
         });
     });
 });
